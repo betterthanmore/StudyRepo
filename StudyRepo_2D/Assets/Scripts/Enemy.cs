@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 10f;
 
-    private float minY = -7;
+    private float minY = -7f;
 
     // Start is called before the first frame update
     void Start()
