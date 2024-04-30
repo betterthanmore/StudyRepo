@@ -343,6 +343,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  weapon: {fileID: 718795798805973456, guid: 65baa7e9e0d1cc140bb4bb04f75a3838, type: 3}
+  shootTransform: {fileID: 1265939186}
+  shootInterval: 0.1
 --- !u!50 &404146094
 Rigidbody2D:
   serializedVersion: 4
