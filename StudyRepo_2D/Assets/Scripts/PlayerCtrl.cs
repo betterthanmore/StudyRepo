@@ -7,6 +7,12 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField]        //private, public 상관없이 스크립쳐블 오브젝트로 관리 가능
     private float moveSpeed;
 
+    [SerializeField]
+    private GameObject weapon;
+
+    [SerializeField]
+    private Transform shootTransform;
+
     
     void Update()
     {
@@ -28,5 +34,12 @@ public class PlayerCtrl : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);                     //화면의 좌측 하단을 (0.0), 우측 하단을 (Screen.width, Screen.height)로 변환
         float toX = Mathf.Clamp(mousePos.x, -2.35f, 2.35f);                                         //Mathf.Clamp를 활용, 가장 좌측 값인 value가 두번째 항, 세번째 항을 넘지 못하게 설정, toX 값에 저장
         transform.position = new Vector3(toX, transform.position.y, transform.position.z);   //x값은 마우스의 현재 위치를 반영해 집어넣고, y, z값은 현재 플레이어 위치를 고정적으로 가져옴
+
+        Shoot();
+    }
+
+    void Shoot()
+    {
+        Instantiate(weapon, shootTransform.position, Quaternion.identity);
     }
 }
