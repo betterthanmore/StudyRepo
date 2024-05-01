@@ -9,6 +9,11 @@ public class Enemy : MonoBehaviour
 
     private float minY = -7f;
 
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        this.moveSpeed = moveSpeed;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
