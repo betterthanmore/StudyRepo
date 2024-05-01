@@ -12,12 +12,25 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(float posX in arrPosX)                      //반복 대상 arrPosX
+        StartEnemyRoutine();        
+    }
+
+    void StartEnemyRoutine()
+    {
+        StartCoroutine("EnemyRoutine");
+    }
+
+    IEnumerator EnemyRoutine()
+    {
+        yield return new WaitForSeconds(3f);                //코루틴 활용, EnemyRoutine를 StartCoroutine에 집어넣고 void Start()에서 호출
+
+        while(true)
+
+        foreach (float posX in arrPosX)                      //반복 대상 arrPosX
         {
             int index = Random.Range(0, enemies.Length);            //enemies.Length를 활용해 배열의 길이를 받아옴, Random.Range로 랜덤하게 값을 불러옴
             SpawnEnemy(posX, index);                                //arrayPositionX의 값과 인덱스 값
         }
-        
     }
 
     void SpawnEnemy(float posX, int index)
