@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private float moveSpeed = 10f;
 
     private float minY = -7f;
+    private float hp = 1f;
+
 
     public void SetMoveSpeed(float moveSpeed)
     {
@@ -29,4 +31,26 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Weapon")
+        {
+            Weapon weapon = other.gameObject.GetComponent<Weapon>();
+            hp -= weapon.damage;
+
+            if(hp <= 0)
+            {
+                Destroy(gameObject);            //미사일에 맞은 게임오브젝트의 체력이 0 이하일 때 Destroy
+            }
+            Destroy(other.gameObject);          //미사일도 함께 Destroy
+        }
+    }
+
+
+    //private void OnCollisionEnter2D(Collision2D collision)  //물리적 충동 판정
+    //{
+        
+    //}
+
 }
