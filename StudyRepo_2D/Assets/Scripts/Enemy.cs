@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private float moveSpeed = 10f;
 
     private float minY = -7f;
+
+    [SerializeField]
     private float hp = 1f;
 
 
@@ -36,7 +38,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Weapon")
         {
-            Weapon weapon = other.gameObject.GetComponent<Weapon>();
+            //Weapon weapon = other.gameObject.GetComponent<Weapon>();        //Weapon은 클래스 자료형, weapon은 파라미터(이름)
+            var weapon = other.gameObject.GetComponent<Weapon>();
             hp -= weapon.damage;
 
             if(hp <= 0)
@@ -48,7 +51,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    //private void OnCollisionEnter2D(Collision2D collision)  //물리적 충동 판정
+    //private void OnCollisionEnter2D(Collision2D collision)  //물리적 충돌 판정
     //{
         
     //}
