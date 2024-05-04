@@ -14,7 +14,7 @@ public class PlayerCtrl : MonoBehaviour
     private Transform shootTransform;
 
     [SerializeField]
-    private float shootInterval = 0.05f;
+    private float shootInterval = 1f;
     private float lastShotTime = 0f;
     
     void Update()
